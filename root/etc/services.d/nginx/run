@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec s6-setuidgid nginx \
+    nginx -g 'daemon off;' -c /etc/nginx/nginx.conf
