@@ -1,4 +1,17 @@
 #!/bin/sh
 
 mysql_install_db --user=mysql --rpm
-exec s6-setuidgid mysql mysqld_safe
+s6-setuidgid mysql mysqld_safe &
+MYSQL_PID=$!
+
+sleep 3
+
+if ! $(echo 'SHOW DATABASES;' | mysql | grep -q csa)
+then
+    echo "CREATE USER 'csa'@'localhost';" | mysql
+    echo "CREATE DATABASE csa;" | mysql
+    echo "GRANT ALL ON csa.* TO 'csa'@'localhost';" | mysql
+    mysql csa < /srv/www/csa.sql
+fi
+
+wait $MYSQL_PID

@@ -17,7 +17,7 @@ RUN mkdir -p \
  /run/nginx \
  /var/log/nginx \
  /run/mysqld \
- /srv/www
+ /srv/www/wordpress
 
 RUN \
  chown -R nginx:nginx /run/nginx /var/log/nginx && \
@@ -28,11 +28,11 @@ RUN \
  echo "Europe/Athens" > /etc/timezone && \
  sed -i "s|;*date.timezone =.*|date.timezone = Europe/Athens|i" /etc/php7/php.ini
 
-ADD wordpress.tar.xz /srv/www
 COPY root /
 
 EXPOSE 8080
 
 VOLUME ["/var/lib/mysql"]
+VOLUME ["/srv/www/wordpress"]
 
 ENTRYPOINT ["/bin/s6-svscan", "/etc/services.d"]
