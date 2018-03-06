@@ -8,4 +8,4 @@ fi
 
 cp wp-config.php wordpress/
 
-exec php-fpm7 --nodaemonize --fpm-config /etc/php7/php-fpm.conf
+exec php-fpm5 --nodaemonize --fpm-config /etc/php5/php-fpm.conf

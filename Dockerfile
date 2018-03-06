@@ -9,8 +9,8 @@ RUN \
     tzdata \
     nginx \
     mariadb \
-    php7-fpm \
-    php7-mysqli \
+    php5-fpm \
+    php5-mysqli \
     mysql-client
 
 RUN mkdir -p \
@@ -26,7 +26,7 @@ RUN \
 RUN \
  cp /usr/share/zoneinfo/Europe/Athens /etc/localtime && \
  echo "Europe/Athens" > /etc/timezone && \
- sed -i "s|;*date.timezone =.*|date.timezone = Europe/Athens|i" /etc/php7/php.ini
+ sed -i "s|;*date.timezone =.*|date.timezone = Europe/Athens|i" /etc/php5/php.ini
 
 COPY root /
 
