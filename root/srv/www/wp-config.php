@@ -14,8 +14,8 @@
  * @package WordPress
  */
 
-define('WP_HOME','http://csa.danmilon.me');
-define('WP_SITEURL','http://csa.danmilon.me');
+define('WP_HOME','http://a.danmilon.me');
+define('WP_SITEURL','http://a.danmilon.me');
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
