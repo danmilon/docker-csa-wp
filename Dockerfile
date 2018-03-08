@@ -11,6 +11,8 @@ RUN \
     mariadb \
     php5-fpm \
     php5-mysqli \
+    php5-ctype \
+    php5-json \
     mysql-client
 
 RUN mkdir -p \
