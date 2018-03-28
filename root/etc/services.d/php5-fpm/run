@@ -3,7 +3,7 @@
 cd /srv/www/
 
 if [ -z "$(ls -A /srv/www/wordpress)" ]; then
-    tar -xJf wordpress.tar.xz
+    tar -xf wordpress.tar.xz
 fi
 
 cp wp-config.php wordpress/
